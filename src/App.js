@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import moment from "moment";
+import CalendarHeading from "./components/Calendar/CalendarHeading";
+import Container from "./components/Container/Container";
+import "./App.css";
 
 function App() {
+  const year = moment().format("YYYY");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CalendarHeading key={Math.random} year={year} />
+      <Container year={year} />
     </div>
   );
 }
