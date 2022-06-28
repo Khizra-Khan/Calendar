@@ -1,4 +1,4 @@
-# Calender
+# Calendar
 An event creation assignment
 
 1- Create a calendar that shows current months and all days(Use moment.js)
