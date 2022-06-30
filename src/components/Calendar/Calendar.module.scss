@@ -1,0 +1,52 @@
+@import "../container/Container.module.scss";
+
+$color_black: black;
+
+@mixin border($width, $style, $color) {
+  border: $width $style $color;
+}
+
+@mixin padding-10 {
+  padding: 10px;
+}
+
+@mixin theme-color-innroad {
+  color: $color-innroad;
+}
+
+.event-detail-wrapper {
+  @include border(1px, solid, $color-innroad);
+  border-left: 10px solid $color-innroad;
+  padding-left: 20px;
+  background: whitesmoke;
+  text-align: left;
+  color: $color-innroad;
+}
+
+.event-heading {
+  @include theme-color-innroad;
+  font-weight: 200;
+}
+
+.calender-row {
+  @include padding-10;
+  color: $color_black;
+}
+.calender-col {
+  @include padding-10;
+  @include theme-color-innroad;
+  width: 40px;
+  font-weight: 500;
+}
+.isDates-grey {
+  color: rgb(197, 187, 187);
+}
+.Container-heading {
+  margin-top: 2%;
+  @include theme-color-innroad;
+}
+
+.calender-date {
+  @include theme-color-innroad;
+  font-weight: 900;
+}

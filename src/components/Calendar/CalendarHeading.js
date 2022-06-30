@@ -1,9 +1,9 @@
 import React from "react";
-import "./Calendar.css";
+import calendar from "./Calendar.module.scss";
 
 const CalendarHeading = (props) => (
   <div>
-    <h1 className="Container-heading">Calender {props.year}</h1>
+    <h1 className={calendar["Container-heading"]}>Calender {props.year}</h1>
   </div>
 );
 
