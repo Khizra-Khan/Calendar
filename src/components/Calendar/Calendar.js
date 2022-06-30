@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 import Dates from "./Dates";
-import "./Calendar.css";
+import calendar from "./Calendar.module.scss";
 
 const getDate = (month, year) => {
   var calendar = [];
@@ -34,26 +34,23 @@ const getDate = (month, year) => {
   }
 };
 
-const Calendar = (props) => (
-  <table className="calender-date">
-    <tbody>
-      <tr>
-        <th className="month-header" colSpan={7}>
-          <h1 className="month-name">{props.month}</h1>
-        </th>
-      </tr>
-      <tr>
-        <th>Sun</th>
-        <th>Mon</th>
-        <th>Tue</th>
-        <th>Wed</th>
-        <th>Thu</th>
-        <th>Fri</th>
-        <th>Sat</th>
-      </tr>
-      {getDate(props.monthIndex, props.year)}
-    </tbody>
-  </table>
-);
+const Calendar = (props) => {
+  return (
+    <table className={calendar["calender-date"]}>
+      <tbody>
+        <tr>
+          <th>Sun</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+        </tr>
+        {getDate(props.monthIndex, props.year)}
+      </tbody>
+    </table>
+  );
+};
 
 export default Calendar;

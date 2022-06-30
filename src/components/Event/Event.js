@@ -1,9 +1,11 @@
 import React from "react";
 import "antd/dist/antd.min.css";
-import { Form, Input, Modal, TimePicker } from "antd";
+import { DatePicker, Form, Input, Modal, TimePicker } from "antd";
+import moment from "moment";
 
 const CollectionCreateEventForm = ({ visible, onCreate, onCancel, date }) => {
   const [form] = Form.useForm();
+  const dateFormat = "YYYY/MM/DD";
   return (
     <Modal
       visible={visible}
@@ -29,7 +31,7 @@ const CollectionCreateEventForm = ({ visible, onCreate, onCancel, date }) => {
         name="form_in_modal"
         initialValues={{
           modifier: "public",
-          date: date,
+          date: moment(new Date(date)),
         }}
       >
         <Form.Item
@@ -45,7 +47,7 @@ const CollectionCreateEventForm = ({ visible, onCreate, onCancel, date }) => {
           <Input />
         </Form.Item>
         <Form.Item name="date" label="Date">
-          <Input disabled />
+          <DatePicker format={dateFormat} disabled />
         </Form.Item>
         <Form.Item
           name="startTime"
