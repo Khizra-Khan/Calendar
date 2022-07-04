@@ -1,7 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import moment from "moment";
-import Dates from "./Dates";
-import calendar from "./Calendar.module.scss";
+import Dates from "../components/Calendar/Dates";
+import calendar from "../styles/Calendar.module.scss";
+import MonthHeader from "../components/Calendar/MonthHeading";
 
 const getDate = (month, year) => {
   var calendar = [];
@@ -35,21 +37,26 @@ const getDate = (month, year) => {
 };
 
 const Calendar = (props) => {
+  const month = useSelector((rootReducer) => rootReducer.monthReducer);
+
   return (
-    <table className={calendar["calender-date"]}>
-      <tbody>
-        <tr>
-          <th>Sun</th>
-          <th>Mon</th>
-          <th>Tue</th>
-          <th>Wed</th>
-          <th>Thu</th>
-          <th>Fri</th>
-          <th>Sat</th>
-        </tr>
-        {getDate(props.monthIndex, props.year)}
-      </tbody>
-    </table>
+    <div className={calendar["month-header"]}>
+      <MonthHeader month={month} />
+      <table className={calendar["calender-date"]}>
+        <tbody>
+          <tr>
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+          </tr>
+          {getDate(month.id, props.year)}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

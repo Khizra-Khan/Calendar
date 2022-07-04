@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import CalendarHeading from "./components/Calendar/CalendarHeading";
 import Container from "./components/Container/Container";
-import styles from "./App.module.scss";
+import styles from "./styles/App.module.scss";
 
 function App() {
   const year = moment().format("YYYY");

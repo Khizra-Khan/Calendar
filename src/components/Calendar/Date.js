@@ -1,51 +1,63 @@
 import React, { useState } from "react";
 import CollectionCreateEventForm from "../Event/Event";
-import styles from "./Calendar.module.scss";
+import styles from "./../../styles/Calendar.module.scss";
+import { useDispatch, useSelector } from "react-redux";
+import * as eventActions from "../../store/actions/eventActions";
 
-const Date = (props) => {
+const Date = (dateProps) => {
+  const events = useSelector((rootReducer) => rootReducer.eventReducer);
+  const dispatch = useDispatch();
   const [eventFormVisible, setEventFormVisible] = useState(false);
-  const [eventCardVisible, setEventCardVisible] = useState(false);
-  const [event, setEvent] = useState("");
+  const [eventCardVisible, setEventCardVisible] = useState(true);
 
   const onCreate = (values) => {
-    setEvent({
+    const newEvent = {
+      date: dateProps.date,
+      weekIndex: dateProps.weekIndex,
       title: values.title,
       description: values.description,
       startTime: values.startTime.format("hh:mm A"),
       endTime: values.endTime.format("hh:mm A"),
-    });
+    };
+    dispatch(eventActions.createEvent(newEvent));
     setEventCardVisible(true);
     setEventFormVisible(false);
   };
 
   return (
-    <div>
+    <div key={dateProps.date}>
       <span
-        key={props.day}
+        key={dateProps.day}
         onClick={() => {
           setEventFormVisible(true);
         }}
       >
-        {props.isExtraDays(props.weekIndex, props.day) ? (
-          <span key={props.day} className={styles["isDates-grey"]}>
-            {props.day}
+        {dateProps.isExtraDays(dateProps.weekIndex, dateProps.day) ? (
+          <span key={dateProps.day} className={styles["isDates-grey"]}>
+            {dateProps.day}
           </span>
         ) : (
-          <span key={props.day}>{props.day}</span>
+          <span key={dateProps.day}>{dateProps.day}</span>
         )}
       </span>
       <div>
-        {eventCardVisible ? (
-          <div className={styles["event-detail-wrapper"]}>
-            <h2 className={styles["event-heading"]}>{event.title}</h2>
-            <span>{event.description}</span>
-            <br />
-            <span>
-              {event.startTime} - {event.endTime}
-            </span>
-          </div>
-        ) : (
-          <span></span>
+        {events.map((event, index) =>
+          eventCardVisible &&
+          event.date === dateProps.date &&
+          event.weekIndex === dateProps.weekIndex ? (
+            <div key={event.title} className={styles["event-detail-wrapper"]}>
+              <h2 key={index} className={styles["event-heading"]}>
+                {event.title}
+              </h2>
+              <span key={event.description}>{event.description}</span>
+              <br />
+              <span key={event.title + index}>
+                {event.startTime} - {event.endTime}
+              </span>
+            </div>
+          ) : (
+            <span></span>
+          )
         )}
       </div>
       <CollectionCreateEventForm
@@ -54,7 +66,7 @@ const Date = (props) => {
         onCancel={() => {
           setEventFormVisible(false);
         }}
-        date={props.date}
+        date={dateProps.date}
       />
     </div>
   );

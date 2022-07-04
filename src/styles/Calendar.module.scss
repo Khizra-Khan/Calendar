@@ -1,6 +1,7 @@
-@import "../container/Container.module.scss";
+@import "./Container.module.scss";
 
 $color_black: black;
+$color_white: white;
 
 @mixin border($width, $style, $color) {
   border: $width $style $color;
@@ -14,10 +15,21 @@ $color_black: black;
   color: $color-innroad;
 }
 
+.month-next-prev {
+  color: $color_white !important;
+  font-size: 40px;
+  padding: 10px;
+  cursor: pointer;
+}
+.month-name {
+  color: $color_white;
+}
+
 .event-detail-wrapper {
   @include border(1px, solid, $color-innroad);
   border-left: 10px solid $color-innroad;
   padding-left: 20px;
+  margin-bottom: 2px;
   background: whitesmoke;
   text-align: left;
   color: $color-innroad;
