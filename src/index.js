@@ -3,8 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter as Router } from "react-router-dom";
-import configureStore from "./redux/configureStore";
+import configureStore from "./store/configureStore";
 import { Provider as ReduxProvider } from "react-redux";
 
 const store = configureStore();
@@ -12,9 +11,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <ReduxProvider store={store}>
-    <Router>
+    <React.StrictMode>
       <App />
-    </Router>
+    </React.StrictMode>
   </ReduxProvider>
 );
 

@@ -5,20 +5,9 @@ $color-innroad: rgb(22, 93, 147);
   background-color: $color-innroad;
 }
 
-.month-next-prev {
-  color: white !important;
-  font-size: 40px;
-  padding: 10px;
-  cursor: pointer;
-}
-
 .month-header {
   @include theme-background-color-innroad;
   padding: 10px;
-}
-
-.month-name {
-  color: $color_white;
 }
 
 .Container {

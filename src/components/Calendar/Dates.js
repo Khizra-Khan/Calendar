@@ -1,6 +1,6 @@
 import React from "react";
 import Date from "./Date";
-import styles from "./Calendar.module.scss";
+import styles from "./../../styles/Calendar.module.scss";
 
 const isExtraDays = (week, date) => {
   if (week === 0 && date > 10) {
@@ -14,20 +14,22 @@ const isExtraDays = (week, date) => {
   }
 };
 
-const Dates = (props) => (
-  <tr className={styles["calender-row"]}>
-    {props.week.map((day) => (
-      <td key={day} className={styles["calender-col"]}>
-        <Date
-          key={day}
-          isExtraDays={isExtraDays}
-          weekIndex={props.weekIndex}
-          day={day}
-          date={props.year + "-" + props.month + "-" + day}
-        />
-      </td>
-    ))}
-  </tr>
-);
+const Dates = (props) => {
+  return (
+    <tr className={styles["calender-row"]}>
+      {props.week.map((day) => (
+        <td key={day} className={styles["calender-col"]}>
+          <Date
+            key={day}
+            isExtraDays={isExtraDays}
+            weekIndex={props.weekIndex}
+            day={day}
+            date={props.year + "-" + props.month + "-" + day}
+          />
+        </td>
+      ))}
+    </tr>
+  );
+};
 
 export default Dates;

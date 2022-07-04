@@ -1,5 +1,5 @@
 import React from "react";
-import calendar from "./Calendar.module.scss";
+import calendar from "./../../styles/Calendar.module.scss";
 
 const CalendarHeading = (props) => (
   <div>
