@@ -1,0 +1,28 @@
+@import "../../styles/common.module.scss";
+
+.Container-heading {
+    margin-top: 2%;
+    @include theme-color-innroad;
+}
+
+.calender-date {
+    @include theme-color-innroad;
+    font-weight: 900;
+}
+
+.month-header {
+    @include theme-background-color-innroad;
+    padding: 10px;
+}
+
+.Container {
+    border: 1px solid rgb(22, 93, 147);
+    min-height: 650px;
+    margin: 0% 4% 0% 4%;
+}
+
+.Container table {
+    float: left;
+    width: 100%;
+    min-height: 600px !important;
+}

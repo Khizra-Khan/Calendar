@@ -1,0 +1,12 @@
+@import "../../../styles/common.module.scss";
+
+.calender-row {
+    @include padding-10;
+    color: $color_black;
+}
+.calender-col {
+    @include padding-10;
+    @include theme-color-innroad;
+    width: 40px;
+    font-weight: 500;
+}

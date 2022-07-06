@@ -1,0 +1,19 @@
+$color_black: black;
+$color_white: white;
+$color-innroad: rgb(22, 93, 147);
+
+@mixin border($width, $style, $color) {
+    border: $width $style $color;
+}
+
+@mixin padding-10 {
+    padding: 10px;
+}
+
+@mixin theme-color-innroad {
+    color: $color-innroad;
+}
+
+@mixin theme-background-color-innroad {
+    background-color: $color-innroad;
+}

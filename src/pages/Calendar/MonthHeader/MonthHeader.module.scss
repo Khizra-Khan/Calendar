@@ -1,0 +1,11 @@
+@import "../../../styles/common.module.scss";
+
+.month-next-prev {
+    color: $color_white !important;
+    font-size: 40px;
+    padding: 10px;
+    cursor: pointer;
+}
+.month-name {
+    color: $color_white;
+}

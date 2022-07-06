@@ -1,0 +1,20 @@
+@import "../../../styles/common.module.scss";
+
+.isDates-grey {
+    color: rgb(197, 187, 187);
+}
+
+.event-detail-wrapper {
+    @include border(1px, solid, $color-innroad);
+    border-left: 10px solid $color-innroad;
+    padding-left: 20px;
+    margin-bottom: 2px;
+    background: whitesmoke;
+    text-align: left;
+    color: $color-innroad;
+}
+
+.event-heading {
+    @include theme-color-innroad;
+    font-weight: 200;
+}

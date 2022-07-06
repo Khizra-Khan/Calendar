@@ -1,15 +1,13 @@
-import React from "react";
-import moment from "moment";
-import CalendarHeading from "./components/Calendar/CalendarHeading";
-import Container from "./components/Container/Container";
-import styles from "./styles/App.module.scss";
+import moment from 'moment';
+import Calendar from './pages/Calendar';
+import styles from './styles/App.module.scss';
 
 function App() {
-  const year = moment().format("YYYY");
+  const year = moment().format('YYYY');
   return (
     <div className={styles.app}>
-      <CalendarHeading key={Math.random} year={year} />
-      <Container year={year} />
+      <h1 className={styles['Container-heading']}>Calendar {year}</h1>
+      <Calendar year={year} />
     </div>
   );
 }

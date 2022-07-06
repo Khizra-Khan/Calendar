@@ -1,9 +1,9 @@
-import React from "react";
-import "antd/dist/antd.min.css";
 import { DatePicker, Form, Input, Modal, TimePicker } from "antd";
 import moment from "moment";
+import "antd/dist/antd.min.css";
+import PropTypes from "prop-types";
 
-const CollectionCreateEventForm = ({ visible, onCreate, onCancel, date }) => {
+function CollectionCreateEventForm({ visible, onCreate, onCancel, date }) {
   const [form] = Form.useForm();
   const dateFormat = "YYYY/MM/DD";
   return (
@@ -14,15 +14,10 @@ const CollectionCreateEventForm = ({ visible, onCreate, onCancel, date }) => {
       cancelText="Cancel"
       onCancel={onCancel}
       onOk={() => {
-        form
-          .validateFields()
-          .then((values) => {
-            form.resetFields();
-            onCreate(values);
-          })
-          .catch((info) => {
-            console.log("Validate Failed:", info);
-          });
+        form.validateFields().then((values) => {
+          form.resetFields();
+          onCreate(values);
+        });
       }}
     >
       <Form
@@ -79,6 +74,13 @@ const CollectionCreateEventForm = ({ visible, onCreate, onCancel, date }) => {
       </Form>
     </Modal>
   );
+}
+
+CollectionCreateEventForm.propTypes = {
+  date: PropTypes.string.isRequired,
+  visible: PropTypes.bool.isRequired,
+  onCancel: PropTypes.func.isRequired,
+  onCreate: PropTypes.func.isRequired,
 };
 
 export default CollectionCreateEventForm;

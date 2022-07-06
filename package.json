@@ -1,14 +1,27 @@
 {
   "name": "calendar",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "homepage": "https://khizra-khan.github.io/Calendar",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.21.4",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-minimizer-webpack-plugin": "^4.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-webpack": "^0.13.2",
+    "eslint-plugin-jest-dom": "^4.0.2",
+    "eslint-plugin-prettier": "^4.2.1",
+    "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.1",
+    "mini-css-extract-plugin": "^2.6.1",
     "moment": "^2.29.3",
+    "prettier": "^2.7.1",
+    "pretty-quick": "^3.1.3",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-calendar": "^3.7.0",
     "react-dom": "^18.2.0",
@@ -16,6 +29,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
+    "redux-immutable-state-invariant": "^2.1.0",
     "redux-thunk": "^2.4.1",
     "web-vitals": "^2.1.4"
   },
@@ -30,6 +44,7 @@
   "eslintConfig": {
     "extends": [
       "react-app",
+      "./.eslintrc.json",
       "react-app/jest"
     ]
   },
@@ -46,8 +61,13 @@
     ]
   },
   "devDependencies": {
+    "eslint": "^8.19.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.0",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "gh-pages": "^4.0.0",
-    "redux-immutable-state-invariant": "^2.1.0",
     "sass": "^1.53.0",
     "sass-loader": "^13.0.2"
   }
